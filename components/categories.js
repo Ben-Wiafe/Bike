@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import {
   View,
   Text,
@@ -9,9 +9,34 @@ import {
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-const Data = [ "All","Roadbike", "Mountain", "Urban", "Desert", "Snow" ,"Rainy", "Groove"];
+const Data = [
+  "All",
+  "Roadbike",
+  "Mountain",
+  "Urban",
+  "Desert",
+  "Snow",
+  "Rainy",
+  "Groove",
+];
 
 const categories = () => {
+
+  const [images, setimages] = useState([
+    require("../assets/b1.jpg"),
+    require("../assets/b4.jpg"),
+    require("../assets/b2.jpg"),
+    require("../assets/b1.jpg"),
+    require("../assets/b4.jpg"),
+    require("../assets/b2.jpg"),
+    require("../assets/b1.jpg"),
+    require("../assets/b4.jpg"),
+    require("../assets/b2.jpg"),
+    require("../assets/b1.jpg"),
+    require("../assets/b4.jpg"),
+    require("../assets/b2.jpg"),
+  ]);
+
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -66,28 +91,69 @@ const categories = () => {
         Categories
       </Text>
       <FlatList
-      horizontal
+        horizontal
         data={Data}
-        keyExtractor ={(item,index) => index.toString()}
-        renderItem={({ item,index }) => (
-          <View style={{flex:1, backgroundColor:'white',marginTop:20,}}>
-         <TouchableOpacity style={{borderWidth:0,padding:3,height:45,borderWidthColor:'red',backgroundColor:'#ccded1', marginHorizontal:6,borderRadius:21,}}>
-         <Text
-            style={{
-              marginTop:10,
-              marginHorizontal:10,
-              marginLeft:10
-              
-              
-            }}
-          >
-            {item}
-          </Text>
-         </TouchableOpacity>
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => (
+          <View style={{ flex: 1, backgroundColor: "white", marginTop: 20, marginBottom:100}}>
+            <TouchableOpacity
+              style={{
+                borderWidth: 0,
+                padding: 3,
+                height: 45,
+                borderWidthColor: "red",
+                backgroundColor: "#ccded1",
+                marginHorizontal: 6,
+                borderRadius: 21,
+              }}
+            >
+              <Text
+                style={{
+                  marginTop: 10,
+                  marginHorizontal: 10,
+                  marginLeft: 10,
+                }}
+              >
+                {item}
+              </Text>
+            </TouchableOpacity>
           </View>
-        
         )}
       />
+   
+      <FlatList
+        numColumns={2}
+        key={2}
+      
+        data={images}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => (
+          <TouchableOpacity style={{backgroundColor:'#faf9f7',borderRadius:18,marginLeft:20, marginBottom:10}}>
+          <FontAwesome name="heart" size={20} style={{color:'#ccc7be', marginLeft:130, padding:2}}/>
+          <Image
+            source={item} /* Use item to set the image source */
+            key={index}
+            style={{
+              width: 140,
+              height: 160,
+              borderRadius:10,
+              marginHorizontal:10,
+              marginBottom:1
+            }}
+          />
+          <Text style={{color:'gray', textAlign:'center'}}>
+            Moutain Bikes
+          </Text>
+          <Text style={{color:'orange', textAlign:'center', fontWeight:'bold'}}>
+            $
+            <Text style={{color:'black', textAlign:'center'}}>
+            10,000
+          </Text>
+          </Text>
+          </TouchableOpacity>
+        )}
+      />
+     
     </View>
   );
 };
