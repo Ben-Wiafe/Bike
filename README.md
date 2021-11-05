@@ -1,2 +1,2 @@
 # React Native
-Class assignment to clone agreeb Bike UI 
+Class assignment to clone agreed Bike UI 
