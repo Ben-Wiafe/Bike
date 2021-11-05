@@ -4,13 +4,11 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  TouchableHighlight,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Shopping from "./shop";
-
 
 const Homepage = ({ navigation }) => {
+
   return (
     <View
       style={{
@@ -20,6 +18,7 @@ const Homepage = ({ navigation }) => {
         alignItems: "center",
       }}
     >
+   
       <Image
         source={require("../../Bike/assets/bike.jpg")}
         style={{
@@ -27,12 +26,12 @@ const Homepage = ({ navigation }) => {
           height: 200,
           borderRadius: 15,
           marginBottom: 50,
-          marginTop: -4,
+          marginTop: -4,  
           transform: [{ rotate: "30deg" }],
         }}
         alt="Homepage logo"
       />
-
+  
       <Text style={{ fontSize: 24 }}> Welcome to </Text>
       <Text style={{ fontSize: 28, fontWeight: "bold" }}>Power Bike Shop</Text>
       <View style={{ marginTop: 20 }}>
