@@ -19,6 +19,8 @@ function App() {
             title: " ",
             headerStyle: {
               backgroundColor: "white",
+              headerShown:false,
+              headerTintColor:'white',
 
             },
           }}
