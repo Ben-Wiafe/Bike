@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-const Data = ["All","Roadbike", "Mountain", "Urban", "Desert", "Snow" ,"Rainy", "Groove"];
+const Data = [ "All","Roadbike", "Mountain", "Urban", "Desert", "Snow" ,"Rainy", "Groove"];
 
 const categories = () => {
   return (
@@ -68,22 +68,23 @@ const categories = () => {
       <FlatList
       horizontal
         data={Data}
-        renderItem={({ item }) => (
-       
-         <TouchableOpacity style={{backgroundColor:'white',  height:90, width:10}}>
+        keyExtractor ={(item,index) => index.toString()}
+        renderItem={({ item,index }) => (
+          <View style={{flex:1, backgroundColor:'white',marginTop:20,}}>
+         <TouchableOpacity style={{borderWidth:0,padding:3,height:45,borderWidthColor:'red',backgroundColor:'#ccded1', marginHorizontal:6,borderRadius:21,}}>
          <Text
             style={{
-              marginTop:20,
-              backgroundColor:'#e1e8e3',
-              marginHorizontal:5,
-              textAlign:'center',
+              marginTop:10,
+              marginHorizontal:10,
+              marginLeft:10
+              
               
             }}
           >
             {item}
           </Text>
          </TouchableOpacity>
-          
+          </View>
         
         )}
       />
